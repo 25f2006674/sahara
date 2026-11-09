@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- This line makes the page scale correctly on phones. Without it, responsive CSS won't work. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sahara · IIT Madras BS Degree</title>
+  <meta name="description" content="Sahara is the social welfare society of the IIT Madras BS Degree Program.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- 1. HEADER / NAVIGATION: each link jumps to the section whose id matches its href -->
+<header class="site-header">
+  <a class="logo" href="#home">Sahara</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
+  <nav id="nav" class="nav">
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 2. HERO -->
+  <section id="home" class="hero">
+    <p class="eyebrow">IIT Madras BS Degree Program</p>
+    <h1>Be someone’s <span>sahara.</span></h1>
+    <p class="hero-text">Sahara is the social welfare society of the IIT Madras BS Degree Program. We bring students together to support the people and communities around us.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">Get involved</a>
+      <a class="btn btn-ghost" href="#about">Learn more</a>
+    </div>
+  </section>
+
+  <!-- 3. ABOUT -->
+  <section id="about" class="section">
+    <h2>About Sahara</h2>
+    <p class="section-intro">TODO: replace this text with Sahara’s real mission and vision from its website.</p>
+    <div class="grid">
+      <article class="card"><h3>Our mission</h3><p>To turn the energy of thousands of learners into practical welfare work that reaches those who need it.</p></article>
+      <article class="card"><h3>Our vision</h3><p>A community where learning and service go together, and every student can make a difference.</p></article>
+      <article class="card"><h3>Our values</h3><p>Empathy, responsibility and teamwork, in everything we plan and every drive we run.</p></article>
+    </div>
+  </section>
+
+  <!-- 4. TEAM -->
+  <section id="team" class="section alt">
+    <h2>Our Team</h2>
+    <p class="section-intro">The people who keep Sahara running.</p>
+    <div class="grid">
+      <!-- TODO: replace names and roles. Copy one <article> per member. -->
+      <article class="card person"><div class="avatar">AB</div><h3>Name Surname</h3><p class="role">Secretary</p><p>Leads the society and its overall direction.</p></article>
+      <article class="card person"><div class="avatar">CD</div><h3>Name Surname</h3><p class="role">Coordinator</p><p>Plans drives and works with volunteers.</p></article>
+      <article class="card person"><div class="avatar">EF</div><h3>Name Surname</h3><p class="role">Outreach Lead</p><p>Builds partnerships with organisations.</p></article>
+      <article class="card person"><div class="avatar">GH</div><h3>Name Surname</h3><p class="role">WebOps</p><p>Looks after the website and digital presence.</p></article>
+    </div>
+  </section>
+
+  <!-- 5. EVENTS -->
+  <section id="events" class="section">
+    <h2>Events &amp; Activities</h2>
+    <p class="section-intro">A look at what we have done together.</p>
+    <div class="grid">
+      <!-- TODO: replace with real past events -->
+      <article class="card event"><span class="tag">Drive</span><h3>Community Welfare Drive</h3><p>Volunteers collected and distributed essentials to families in need.</p></article>
+      <article class="card event"><span class="tag">Session</span><h3>Awareness Session</h3><p>An open session on social issues, with speakers from the community.</p></article>
+      <article class="card event"><span class="tag">Campaign</span><h3>Learner Support Campaign</h3><p>Peer support for students who needed guidance and resources.</p></article>
+    </div>
+  </section>
+
+  <!-- 6. GALLERY: clicking a photo opens it larger (see script.js) -->
+  <section id="gallery" class="section alt">
+    <h2>Gallery</h2>
+    <p class="section-intro">Memories from our events. Tap a photo to enlarge it.</p>
+    <div class="gallery">
+      <!-- TODO: put real photos in the images folder (g1.jpg ... g6.jpg). Until then the gradient shows. -->
+      <button class="shot" style="background-image:url(images/g1.jpg),linear-gradient(135deg,#0E3B43,#2f8a8f)" aria-label="Photo 1: Welfare drive"></button>
+      <button class="shot" style="background-image:url(images/g2.jpg),linear-gradient(135deg,#F2A900,#f6cf6b)" aria-label="Photo 2: Volunteers"></button>
+      <button class="shot" style="background-image:url(images/g3.jpg),linear-gradient(135deg,#1d5c63,#0E3B43)" aria-label="Photo 3: Awareness session"></button>
+      <button class="shot" style="background-image:url(images/g4.jpg),linear-gradient(135deg,#2f8a8f,#9fd0cf)" aria-label="Photo 4: Team"></button>
+      <button class="shot" style="background-image:url(images/g5.jpg),linear-gradient(135deg,#c98600,#F2A900)" aria-label="Photo 5: Campaign"></button>
+      <button class="shot" style="background-image:url(images/g6.jpg),linear-gradient(135deg,#0E3B43,#F2A900)" aria-label="Photo 6: Community"></button>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p class="section-intro">Questions, ideas or want to volunteer? Write to us.</p>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h3>Reach us directly</h3>
+        <!-- TODO: replace with the real email -->
+        <p><strong>Email</strong><br><a href="mailto:contact@sahara.example">contact@sahara.example</a></p>
+        <p><strong>Where</strong><br>IIT Madras BS Degree Program, Chennai</p>
+        <p><strong>Replies</strong><br>We usually answer within a few days.</p>
+      </div>
+
+      <form id="contactForm" class="form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+        <p class="error" data-for="name"></p>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <p class="error" data-for="email"></p>
+
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>Volunteering</option>
+          <option>Partnership</option>
+          <option>Donation</option>
+          <option>General query</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <p class="error" data-for="message"></p>
+
+        <button class="btn btn-primary" type="submit" id="sendBtn">Send message</button>
+        <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- 8. FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <a class="logo" href="#home">Sahara</a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#about">About</a><a href="#team">Team</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-links">
+      <!-- TODO: replace # with real social links -->
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+  <p class="copy">© 2026 Sahara Society, IIT Madras BS Degree Program. Website by the Sahara WebOps team.</p>
+</footer>
+
+<!-- Gallery modal: hidden until a photo is clicked -->
+<div class="modal" id="modal" hidden>
+  <button class="modal-close" id="modalClose" aria-label="Close preview">✕</button>
+  <div class="modal-img" id="modalImg"></div>
+</div>
+
+</body>
+</html>
