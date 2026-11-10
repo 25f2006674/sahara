@@ -1,123 +1,84 @@
-/* ---------- 1. Design tokens: colours and fonts live here so they can be changed in one place ---------- */
-:root {
-  --teal: #0E3B43;
-  --sun: #F2A900;
-  --paper: #F6F8F7;
-  --white: #fff;
-  --ink: #12292E;
-  --muted: #526a6e;
-  --line: #d5e0e0;
-  --head: "Bricolage Grotesque", system-ui, sans-serif;
-  --body: "Instrument Sans", system-ui, sans-serif;
-}
+/* colours */
+:root { --teal: #0E3B43; --sun: #F2A900; --paper: #F6F8F7; --muted: #526a6e; --line: #d5e0e0; }
 
-/* ---------- 2. Base styles ---------- */
-* { box-sizing: border-box; }                 /* padding no longer makes elements wider than their set width */
-html { scroll-behavior: smooth; }             /* smooth scrolling when nav links are clicked */
-body { margin: 0; font: 1rem/1.6 var(--body); color: var(--ink); background: var(--white); }
-h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0 0 .5rem; }
-a { color: inherit; }
-:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }   /* visible focus for keyboard users */
+/* basics */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: "Instrument Sans", sans-serif; line-height: 1.6; color: #12292E; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", sans-serif; line-height: 1.1; margin: 0 0 .5rem; }
+a { color: inherit; text-decoration: none; }
 
-/* ---------- 3. Header and navigation (mobile first: menu hidden until the button is pressed) ---------- */
-.site-header {
-  position: sticky; top: 0; z-index: 10;       /* stays visible while scrolling */
-  display: flex; justify-content: space-between; align-items: center;
-  padding: .9rem 1.25rem; background: var(--white); border-bottom: 1px solid var(--line);
-}
-.logo { font: 800 1.4rem var(--head); text-decoration: none; color: var(--teal); }
-.menu-btn { font-size: 1.5rem; background: none; border: 0; cursor: pointer; color: var(--teal); }
-.nav {
-  display: none; position: absolute; top: 100%; left: 0; right: 0;
-  flex-direction: column; background: var(--white); padding: 1rem 1.25rem; border-bottom: 1px solid var(--line);
-}
-.nav.open { display: flex; }                  /* JS adds the class "open" */
-.nav a { padding: .6rem 0; text-decoration: none; font-weight: 500; }
-.nav-cta { color: var(--teal); font-weight: 600; }
+/* header (phone: menu hidden until button pressed) */
+.site-header { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: .9rem 1.25rem; background: #fff; border-bottom: 1px solid var(--line); }
+.menu-btn { font-size: 1.5rem; background: none; border: 0; color: var(--teal); }
+.nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: .8rem; background: #fff; padding: 1rem 1.25rem; }
+.nav.open { display: flex; }
+.logo { display: flex; align-items: center; gap: .5rem; font: 800 1.4rem "Bricolage Grotesque", sans-serif; color: var(--teal); }
+.logo img { height: 2.5rem; }
 
-/* ---------- 4. Buttons ---------- */
-.btn { display: inline-block; padding: .85rem 1.5rem; border-radius: 999px; font: 600 1rem var(--body); text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: transform .15s; }
-.btn:hover { transform: translateY(-2px); }
+/* buttons */
+.btn { display: inline-block; padding: .85rem 1.5rem; border: 0; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
 .btn-primary { background: var(--sun); color: #2a1d00; }
-.btn-ghost { border-color: var(--white); color: var(--white); }
+.btn-ghost { border: 2px solid #fff; color: #fff; }
 
-/* ---------- 5. Hero ---------- */
-.hero { background: var(--teal); color: var(--white); padding: 4.5rem 1.25rem 5rem; text-align: center; }
-.hero h1 { font-size: clamp(2.6rem, 9vw, 5rem); }   /* clamp(min, flexible, max): text grows with screen width but has limits */
+/* hero */
+.hero { background: var(--teal); color: #fff; padding: 4.5rem 1.25rem 5rem; text-align: center; }
+.hero h1 { font-size: clamp(2.6rem, 9vw, 5rem); }
 .hero h1 span { color: var(--sun); }
-.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: #a8cfd1; margin: 0 0 1rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; color: #a8cfd1; }
 .hero-text { max-width: 38rem; margin: 1rem auto 2rem; font-size: 1.15rem; color: #d7e8e8; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; }
 
-/* ---------- 6. Generic section layout ---------- */
-.section { padding: 4rem 1.25rem; max-width: 1100px; margin: 0 auto; }
-.section.alt { max-width: none; background: var(--paper); }
-.section.alt > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
-.section { scroll-margin-top: 4rem; }          /* stops the sticky header from covering a section title after a jump */
+/* sections: padding grows on wide screens so content stays 1100px wide but grey background goes edge to edge */
+.section { padding: 4rem max(1.25rem, calc(50% - 550px)); scroll-margin-top: 4rem; }
+.alt { background: var(--paper); }
 .section h2 { font-size: clamp(1.9rem, 5vw, 2.6rem); color: var(--teal); }
-.section-intro { color: var(--muted); max-width: 40rem; margin: 0 0 2rem; }
+.section-intro { color: var(--muted); margin: 0 0 2rem; }
 
-/* The key responsive trick: as many columns as fit, each at least 240px wide, sharing the space equally.
-   One column on a phone, two on a tablet, three or four on a desktop, with no media query needed. */
+/* cards: 1 column on phone, more columns on bigger screens */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
-.card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; }
-.card h3 { font-size: 1.25rem; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 1.5rem; }
 .card p { margin: 0; color: var(--muted); }
-
-/* ---------- 7. Team and events cards ---------- */
 .person { text-align: center; }
-.avatar { width: 4.5rem; height: 4.5rem; margin: 0 auto 1rem; border-radius: 50%; background: var(--teal); color: var(--sun); display: grid; place-items: center; font: 800 1.3rem var(--head); }
-.role { color: var(--teal) !important; font-weight: 600; margin-bottom: .4rem !important; }
+.avatar { width: 4.5rem; height: 4.5rem; margin: 0 auto 1rem; border-radius: 50%; background: var(--teal); color: var(--sun); display: grid; place-items: center; font: 800 1.3rem "Bricolage Grotesque", sans-serif; }
+.card .role { color: var(--teal); font-weight: 600; }
 .tag { display: inline-block; background: #fdf0c8; color: #7a5400; font-size: .8rem; font-weight: 600; padding: .2rem .7rem; border-radius: 999px; margin-bottom: .8rem; }
 
-/* ---------- 8. Gallery ---------- */
+/* gallery */
 .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: .75rem; }
-.shot { aspect-ratio: 4 / 3; border: 0; border-radius: 12px; cursor: zoom-in; background-size: cover; background-position: center; transition: transform .2s; }
-.shot:hover { transform: scale(1.03); }
+.shot { aspect-ratio: 4 / 3; border: 0; border-radius: 12px; background-size: cover; background-position: center; cursor: pointer; }
 
-/* ---------- 9. Contact ---------- */
-.contact-wrap { display: grid; gap: 2rem; }    /* stacked on phones; side by side on desktop (see media query) */
-.contact-info { background: var(--teal); color: var(--white); border-radius: 16px; padding: 2rem; align-self: start; }
+/* contact */
+.contact-wrap { display: grid; gap: 2rem; }
+.contact-info { background: var(--teal); color: #fff; border-radius: 16px; padding: 2rem; align-self: start; }
 .contact-info h3 { color: var(--sun); }
-.contact-info a { color: var(--white); overflow-wrap: anywhere; }
+.contact-info a { overflow-wrap: anywhere; }
 .form label { display: block; font-weight: 600; margin: 1rem 0 .35rem; }
-.form input, .form select, .form textarea { width: 100%; font: inherit; padding: .75rem .9rem; border: 1.5px solid var(--line); border-radius: 10px; background: var(--white); }
-.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--teal); }
-.form .invalid { border-color: #b3261e; }
-.error { color: #b3261e; font-size: .875rem; margin: .3rem 0 0; min-height: 1em; }
+.form input, .form select, .form textarea { width: 100%; font: inherit; padding: .75rem .9rem; border: 1.5px solid var(--line); border-radius: 10px; }
 .form .btn { margin-top: 1.25rem; width: 100%; }
-.form .btn:disabled { opacity: .6; cursor: wait; }
-.status { margin: 1rem 0 0; font-weight: 600; }
+.status { font-weight: 600; }
 .status.ok { color: #1b7a43; }
 .status.fail { color: #b3261e; }
 
-/* ---------- 10. Footer ---------- */
+/* footer */
 .footer { background: var(--teal); color: #cfe3e3; padding: 2.5rem 1.25rem 1.5rem; }
 .footer .logo { color: var(--sun); }
 .footer-top { max-width: 1100px; margin: 0 auto; display: grid; gap: 1.25rem; }
 .footer-links { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
-.footer-links a { text-decoration: none; }
-.footer-links a:hover { color: var(--sun); }
 .copy { max-width: 1100px; margin: 2rem auto 0; padding-top: 1rem; border-top: 1px solid #2a5961; font-size: .875rem; }
 
-/* ---------- 11. Gallery modal ---------- */
+/* gallery popup */
 .modal { position: fixed; inset: 0; background: rgba(5, 20, 24, .88); display: grid; place-items: center; padding: 1.5rem; z-index: 20; }
 .modal[hidden] { display: none; }
-.modal-img { width: min(900px, 100%); aspect-ratio: 4 / 3; max-height: 80vh; background-size: contain; background-position: center; background-repeat: no-repeat; border-radius: 12px; }
-.modal-close { position: absolute; top: 1rem; right: 1rem; width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 0; background: var(--sun); font-size: 1.1rem; cursor: pointer; }
+.modal-img { width: min(900px, 100%); aspect-ratio: 4 / 3; max-height: 80vh; background-size: contain; background-position: center; background-repeat: no-repeat; }
+.modal-close { position: absolute; top: 1rem; right: 1rem; width: 2.75rem; height: 2.75rem; border: 0; border-radius: 50%; background: var(--sun); cursor: pointer; }
 
-/* ---------- 12. Larger screens: media queries ADD to the phone layout above ---------- */
+/* tablet and desktop (800px and wider) */
 @media (min-width: 800px) {
   .menu-btn { display: none; }
-  .nav { display: flex; position: static; flex-direction: row; align-items: center; gap: 1.75rem; padding: 0; border: 0; }
-  .nav-cta { background: var(--teal); color: var(--white); padding: .5rem 1.1rem; border-radius: 999px; }
+  .nav { display: flex; position: static; flex-direction: row; align-items: center; gap: 1.75rem; padding: 0; }
+  .nav-cta { background: var(--teal); color: #fff; padding: .5rem 1.1rem; border-radius: 999px; }
   .contact-wrap { grid-template-columns: 1fr 1.4fr; }
   .footer-top { grid-template-columns: auto 1fr auto; align-items: center; }
-  .footer-top nav.footer-links { justify-content: center; }
-}
-
-/* Respect people who prefer less motion */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { transition: none !important; }
+  .footer-top nav { justify-content: center; }
 }
